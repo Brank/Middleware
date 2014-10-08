@@ -1,5 +1,5 @@
 import java.io.Serializable;
-/*PRUEBA DE QUE VA EL GITHUB sld;kadlsakd*/
+/*PRUEBA DE QUE VA EL GITHUB */
 public class Tweet implements Serializable {
 
 	/**
