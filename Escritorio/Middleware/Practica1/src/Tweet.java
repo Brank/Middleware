@@ -1,5 +1,5 @@
 import java.io.Serializable;
-/*ESTO ES UN COMENTARIO DESDE GITHUB */
+/*ESTO LO COMENTE EN ECLIPSE*/
 public class Tweet implements Serializable {
 
 	/**
