@@ -18,6 +18,9 @@ public class Tweet implements Serializable {
 		else
 		{
 			/* TRUNCAR*/
+			tweet = tweet.substring(0, 137); /*Se cojen los primeros 137 caracteres del tweet para truncarlo */
+			tweet = tweet.concat("...");
+			this.tweet = tweet;
 		}
 		this.usuario = usuario;
 	}

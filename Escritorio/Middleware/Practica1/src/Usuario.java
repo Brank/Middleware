@@ -11,6 +11,8 @@ public class Usuario implements Serializable {
 	private String usuario;
 	private String password;
 	private String correoElectronico;
+	private FollowList listaDeSeguidores;
+	private TimeLine timeline;
 	
 	public Usuario(String nombre,String usuario,String password, String correoElectronico)
 	{
@@ -18,8 +20,11 @@ public class Usuario implements Serializable {
 		this.usuario = usuario;
 		this.password = password;
 		this.correoElectronico = correoElectronico;
+		this.listaDeSeguidores = new FollowList();
+		this.timeline = new TimeLine(this);
 	}
 	
+	/*Metodos get*/
 	public String getCorreoElectronico()
 	{
 		return this.correoElectronico;
@@ -36,8 +41,28 @@ public class Usuario implements Serializable {
 	{
 		return this.password;
 	}
-	public Tweet twitear(Tweet tweet)
+	public FollowList getListaDeSeguidores()
 	{
-		return tweet;
+		return this.listaDeSeguidores;
+	}
+	public TimeLine getTimeLine()
+	{
+		return this.timeline;
+	}
+	/*Implementacion de los metodos de la interfaz remota*/
+	public boolean twitear(String tweet)
+	{
+		boolean added = false;
+		Tweet tweetNuevo = new Tweet(tweet,this);
+		timeline.add(tweetNuevo);
+		added = true;
+		return added;
+	}
+	public boolean follow(Usuario user)
+	{
+		boolean added = false;
+		listaDeSeguidores.add(user);
+		added = true;
+		return added;
 	}
 }
